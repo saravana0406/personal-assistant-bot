@@ -1,0 +1,35 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey", "good morning"],
+      "responses": ["Hello! How can I help you?"]
+    },
+    {
+  "tag": "time",
+  "patterns": [
+    "time",
+    "time now",
+    "what is time",
+    "what's the time",
+    "current time",
+    "tell me time",
+    "show time",
+    "give me time",
+    "can you tell time"
+  ],
+  "responses": ["Checking time..."]
+},
+    {
+      "tag": "open_app",
+      "patterns": [
+        "open chrome",
+        "launch chrome",
+        "start chrome",
+        "open browser",
+        "run chrome"
+      ],
+      "responses": ["Opening Chrome..."]
+    }
+  ]
+}
