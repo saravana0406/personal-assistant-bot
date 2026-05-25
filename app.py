@@ -1,19 +1,27 @@
-from src.predict import predict_class
-from src.actions import perform_action
+import streamlit as st
+import sys
+import os
 
-print("Smart Task Executor started (type 'quit' to stop)\n")
+sys.path.append(os.path.abspath("src"))
 
-while True:
-    user_input = input("You: ")
+from predict import predict_class
+from actions import perform_action
 
-    if user_input.lower() == "quit":
-        break
+st.title("🤖 Smart Personal Assistant Bot")
 
-    tag = predict_class(user_input)
+user_input = st.text_input("Enter your command")
 
-    if tag == "unknown":
-        print("Bot: I didn't understand that.")
-        continue
+if st.button("Execute"):
 
-    response = perform_action(tag)
-    print("Bot:", response)
+    if user_input.strip() == "":
+        st.warning("Please enter a command")
+
+    else:
+        tag = predict_class(user_input)
+
+        if tag == "unknown":
+            st.error("I didn't understand that.")
+
+        else:
+            response = perform_action(tag)
+            st.success(response)
